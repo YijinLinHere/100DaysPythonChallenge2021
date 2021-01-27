@@ -16,7 +16,6 @@ class QuizBrain:
             print("That's a wrong answer.")
         print("The correct answer is {}".format(q_ans))
         print("Your current score is {}/{}".format(self.score, self.question_number))
-        print("\n")
 
     def next_question(self):
         q_text = self.question_list[self.question_number].text
