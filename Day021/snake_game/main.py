@@ -44,12 +44,10 @@ while game_is_on:
         game_is_on = False
 
     # Destect collision with tail
-    for segment in snake.segments:
-        if segment == snake.head:
-            # since the distance between head and head is < 10
-            pass
-        elif snake.head.distance(segment) < 10:
+    for segment in snake.segments[1:]:
+        if snake.head.distance(segment) < 10:
+            scoreboard.showGameOver()
             game_is_on = False
-            scoreboard.showGameOver
+
     
 screen.exitonclick()
