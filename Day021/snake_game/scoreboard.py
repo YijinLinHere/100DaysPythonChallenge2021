@@ -24,7 +24,7 @@ class ScoreBoard(Turtle):
     
     def showGameOver(self):
         self.goto(0, 0)
-        self.write("GAME OVER", align = ALIGNMENT, font = FONT)
+        self.write("*** GAME OVER ***", align = ALIGNMENT, font = FONT)
 
     def addon(self):
         self.score += 1

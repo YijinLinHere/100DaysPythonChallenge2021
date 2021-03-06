@@ -21,11 +21,18 @@ class Snake():
 
         # create snake
         for position in START_POSITIONS:
-            new_segment = Turtle(shape = "square")
-            new_segment.color("white")
-            new_segment.penup()
-            new_segment.goto(position)
-            self.segments.append(new_segment)
+            self.addSegment(position)
+
+    def addSegment(self, position):
+        new_segment = Turtle(shape = "square")
+        new_segment.color("white")
+        new_segment.penup()
+        new_segment.goto(position)
+        self.segments.append(new_segment)
+
+    def extend(self):
+        # the last segment will stay at where it was created after the first move
+        self.addSegment(self.segments[-1].position())
 
     def move(self):
         # moving strategy
