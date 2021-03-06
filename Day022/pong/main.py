@@ -1,7 +1,10 @@
 # 196. Set up the Main Screen
 # 197. Create a Paddle that responds to Key Presses
+# 198. Write the Paddle Class and Create the Second Paddle
 
-from turtle import Screen, Turtle
+
+from turtle import Screen
+from paddle import Paddle
 
 
 screen = Screen()
@@ -14,27 +17,15 @@ screen.title("Pong")
 # it should put before create paddle
 screen.tracer(0)
 
-paddle = Turtle()
-paddle.penup()
-paddle.shape("square")
-paddle.color("white")
-paddle.resizemode("user")
-paddle.shapesize(stretch_wid=5, stretch_len=1)  # each turtle squarestart with size 20*20
-paddle.goto(350, 0)
+r_paddle = Paddle((350, 0))
+l_paddle = Paddle((-350, 0))
 
-
-
-def goUp():
-    new_y = paddle.ycor() + 20
-    paddle.goto(paddle.xcor(), new_y)
-
-def goDown():
-    new_y = paddle.ycor() - 20
-    paddle.goto(paddle.xcor(), new_y)
 
 screen.listen()
-screen.onkey(goUp, "Up")
-screen.onkey(goDown, "Down")
+screen.onkey(r_paddle.goUp, "Up")
+screen.onkey(r_paddle.goDown, "Down")
+screen.onkey(l_paddle.goUp, "w")
+screen.onkey(l_paddle.goDown, "s")
 
 game_is_on = True
 while game_is_on:
